@@ -1,13 +1,23 @@
-export function Footer({ naslov }) {
+import { Link } from "react-router";
+
+export function Footer() {
   return (
     <footer>
-      <nav aria-label="Navigacija u podnozju">
-        <ul className="footer-linkovi">
-          <li>
-            <a href="#sadrzaj">{naslov}</a>
-          </li>
-        </ul>
-      </nav>
+      <div className="footer-wrapper">
+        <Link className="footer-logo" to="/">
+          Autoservis FE
+        </Link>
+        <nav aria-label="Navigacija u podnozju">
+          <ul className="footer-linkovi">
+            <li>
+              <Link to="/">Naslovnica</Link>
+            </li>
+            <li>
+              <Link to="/kontakt">Kontakt</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </footer>
   );
 }

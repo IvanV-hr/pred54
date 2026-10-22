@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button } from "./Button.jsx";
+import { Link } from "react-router";
 
-export function Header({ naslov }) {
+export function Header() {
   const [otvoren, setOtvoren] = useState(false);
 
   return (
@@ -11,9 +12,9 @@ export function Header({ naslov }) {
       </a>
       <header>
         <div className="header-wrapper">
-          <a className="header-logo" href="#glavni-sadrzaj">
-            React
-          </a>
+          <Link className="header-logo" to="/">
+            Autoservis FE
+          </Link>
           <Button
             className="hamburger"
             aria-label={otvoren ? "Zatvori izbornik" : "Otvori izbornik"}
@@ -32,9 +33,14 @@ export function Header({ naslov }) {
           >
             <ul className="header-linkovi">
               <li>
-                <a href="#sadrzaj" onClick={() => setOtvoren(false)}>
-                  {naslov}
-                </a>
+                <Link to="/" onClick={() => setOtvoren(false)}>
+                  Naslovnica
+                </Link>
+              </li>
+              <li>
+                <Link to="/kontakt" onClick={() => setOtvoren(false)}>
+                  Kontakt
+                </Link>
               </li>
             </ul>
           </nav>

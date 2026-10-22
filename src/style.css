@@ -1,7 +1,7 @@
 /* base */
 :root {
   --tamna: #356fa8;
-  --svijetla: #f7fbff;
+  --svijetla: #f8f8f8;
   --bijela: #ffffff;
   --rub: #c8deef;
   --tekst: #263b4f;
@@ -36,15 +36,15 @@ p {
 .header-wrapper,
 main {
   width: 90%;
-  max-width: 1180px;
+  max-width: 1100px;
   margin-inline: auto;
 }
 
 .skip-veza {
-  position: absolute;
+  position: fixed;
   top: -80px;
   left: 16px;
-  z-index: 10;
+  z-index: 200;
   padding: 10px 16px;
   color: var(--bijela);
   background-color: var(--tamna);
@@ -73,18 +73,29 @@ footer {
   background-color: var(--tamna);
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  color: var(--tekst);
+  background: var(--bijela);
+  border-bottom: 1px solid var(--rub);
+}
+
 .header-wrapper {
-  min-height: 72px;
+  padding: 12px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 1rem;
 }
 
 .header-logo {
   font-size: 1.2rem;
   font-weight: bold;
   text-decoration: none;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: var(--tamna);
   display: flex;
 }
 
@@ -93,18 +104,15 @@ footer {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 20px;
+  gap: 0.5rem;
   list-style: none;
 }
 
 .header-linkovi a,
 .footer-linkovi a {
+  display: inline-block;
+  padding: 8px 10px;
   text-decoration: none;
-}
-
-.header-linkovi a {
-  display: block;
-  padding-block: 8px;
 }
 
 .hamburger {
@@ -112,7 +120,7 @@ footer {
   height: 44px;
   padding: 10px;
   display: none;
-  border: 1px solid var(--bijela);
+  border: 1px solid var(--tamna);
   color: inherit;
   background-color: transparent;
   cursor: pointer;
@@ -125,16 +133,8 @@ footer {
   background-color: currentColor;
 }
 
-@media (max-width: 899px) {
-  .header-wrapper {
-    gap: 16px;
-  }
-}
-
 @media (max-width: 599px) {
   .header-wrapper {
-    min-height: 64px;
-    padding-block: 10px;
     flex-wrap: wrap;
   }
 
@@ -154,20 +154,73 @@ footer {
 
   .header-linkovi {
     flex-direction: column;
-    gap: 4px;
   }
+}
+
+.hero {
+  position: relative;
+  min-height: 450px;
+  padding: 50px 5%;
+}
+
+.hero-slika {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 22, 38, 0.8),
+    rgba(11, 22, 38, 0.2)
+  );
+}
+
+.hero-sadrzaj {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  color: var(--bijela);
+  margin: 0 auto;
+}
+
+.hero-oznaka {
+  color: rgb(142, 241, 241);
+  font-weight: bold;
+}
+
+.hero-sadrzaj h1 {
+  margin-bottom: 20px;
+  font-size: 4rem;
+  line-height: 1.1;
+  max-width: 600px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+@media (max-width: 599px) {
+  .hero-sadrzaj h1 {
+    font-size: 3rem;
+  }
+}
+
+main {
+  flex: 1;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* zajednicko */
 .section {
-  padding: 30px;
-  margin: 2rem 0;
-  border: 1px solid var(--rub);
-  background: var(--bijela);
-}
-
-h1 {
-  font-size: 2.5rem;
   margin: 2rem 0;
 }
 
@@ -182,12 +235,19 @@ h2 {
 }
 
 .kartica {
-  flex: 1 1 210px;
+  flex: 1 1 260px;
   padding: 1rem;
   border: 1px solid var(--rub);
+  border-top: 5px solid var(--tamna);
+  border-radius: 10px;
+  background: var(--bijela);
+  box-shadow: var(--box-shadow);
 }
 
 .gumb {
+  text-decoration: none;
+  border-radius: 5px;
+  align-self: flex-start;
   padding: 10px 15px;
   border: 1px solid var(--tamna);
   color: var(--bijela);
@@ -197,43 +257,52 @@ h2 {
 }
 
 .gumb:hover {
-  opacity: 0.9;
+  background: var(--tamna-hover);
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 /* footer */
 footer {
-  padding: 28px 0;
+  color: var(--tekst);
+  background: var(--bijela);
+  margin-top: 25px;
+  border-top: 1px solid var(--rub);
+}
+
+.footer-wrapper {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 12px;
 }
 
 .footer-linkovi {
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 899px) {
-  .footer-linkovi {
-    gap: 16px;
-  }
+.footer-linkovi a:hover,
+.header-linkovi a:hover {
+  text-decoration: underline;
+}
+
+.footer-logo {
+  text-decoration: none;
 }
 
 @media (max-width: 599px) {
-  .footer-linkovi {
+  .footer-wrapper {
     flex-direction: column;
-    align-items: center;
-    gap: 8px;
   }
-}
-
-.logo {
-  width: 30px;
-  height: 30px;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.odabir-broja-osoba {
-  margin-bottom: 1rem;
 }
