@@ -267,12 +267,17 @@ h2 {
   flex-wrap: wrap;
 }
 
+.forme {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .forma {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  width: 100%;
-  max-width: 400px;
+  flex: 1 1 300px;
   padding: 20px;
   background: var(--bijela);
   box-shadow: var(--box-shadow);
@@ -283,6 +288,7 @@ h2 {
 .forma label {
   font-weight: bold;
   color: var(--tekst);
+  max-width: 380px;
 }
 
 .forma input:not([type="checkbox"]),
@@ -291,12 +297,17 @@ textarea {
   border: 1px solid var(--rub);
   color: var(--tekst);
   border-radius: 5px;
+  max-width: 380px;
 }
 
 .forma input:focus,
 textarea:focus {
   outline: 2px solid var(--tamna);
   outline-offset: 2px;
+}
+
+.forma p {
+  max-width: 380px;
 }
 
 .greska {
